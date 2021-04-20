@@ -11,8 +11,13 @@ class PostsRepository:
     def get_posts():
         return []
 
+
     @staticmethod
     def create_post(content, user_id):
+        """
+        Create a post record in the database.
+        """
+
         sql = """
             insert into posts
                 (content, user_id)
@@ -20,4 +25,4 @@ class PostsRepository:
                 (%s, %s)
         """
 
-        query.insert(sql, [content, user_id])
+        return query.insert(sql, [content, user_id])

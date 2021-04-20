@@ -1,5 +1,6 @@
 from django.db import connection
 
+
 class QueryHelpers:
     """
     Helper class for serializing django query sets.
@@ -32,6 +33,7 @@ class QueryHelpers:
             for row in cursor.fetchall()
         ]
 
+
     @staticmethod
     def single(sql, params=None):
         """
@@ -59,5 +61,17 @@ class QueryHelpers:
 
     @staticmethod
     def insert(sql, params):
+        """
+        Inserts data into the database.
+
+        Args: 
+            sql (string): A string that represents a sql query.
+            params (list): A list of parameters to serialize into the query.
+
+        Returns:
+            id (int): last row id of the insert statement.
+        """
+
         with connection.cursor() as cursor:
             cursor.execute(sql, params)
+            return cursor.lastrowid

@@ -5,6 +5,7 @@ from django.utils.decorators import method_decorator
 import json
 from repositories.posts import PostsRepository
 
+
 @method_decorator(csrf_exempt, name='dispatch')
 class Create(View):
     """
@@ -14,5 +15,5 @@ class Create(View):
         body = json.loads(request.body.decode('utf-8'))
         content = body['content']
         user = self.request.user
-        PostsRepository.create_post(content, user.id)
-        return HttpResponse(json.dumps(True), content_type='application/json')
+        id = PostsRepository.create_post(content, user.id)
+        return HttpResponse(json.dumps(id), content_type='application/json')
