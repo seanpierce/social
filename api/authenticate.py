@@ -1,10 +1,9 @@
-import json
 from django.http import HttpResponse, HttpRequest
 from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.contrib.auth import authenticate, login, logout
-
+import json
 
 @method_decorator(csrf_exempt, name='dispatch')
 class Login(View):
