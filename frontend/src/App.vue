@@ -1,7 +1,7 @@
 <template>
-    <div id="app">
+    <div>
         <Nav />
-        <RouterView />
+        <RouterView id ="app"/>
     </div>
 </template>
 
@@ -9,8 +9,9 @@
 import Nav from '@/components/Nav'
 
 export default {
+
     components: {
         Nav
-    }
+    },
 }
 </script>

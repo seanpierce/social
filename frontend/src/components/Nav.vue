@@ -1,6 +1,32 @@
 <template>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <div id="nav-left" class="nav-section">
+        <router-link to="/">SM</router-link>
+      </div>
+      <div id="nav-right" class="nav-section" v-if="user">
+        <a href="" @click.prevent="logout()">LOG OUT</a>
+      </div>
     </div>
 </template>
+
+<script>
+export default {
+  
+  computed: {
+
+    user() {
+      return this.$store.state.user
+    }
+  },
+
+  methods: {
+    logout() {
+      this.$store.dispatch('logout')
+        .then(response => {
+          if (response)
+            this.$router.push('/')
+        })
+    }
+  }
+}
+</script>

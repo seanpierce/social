@@ -37,4 +37,4 @@ class Logout(View):
     """
     def post(self, request, *args, **kwargs):
         logout(request)
-        return HttpResponse('/login', content_type='application/json')
+        return HttpResponse(True, content_type='application/json')
