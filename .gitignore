@@ -1,0 +1,8 @@
+db.sqlite3
+.vscode/
+*.pyc
+**/__pycache__/
+env.ini
+.DS_Store
+logs/*
+!logs/.keep
