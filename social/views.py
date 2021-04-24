@@ -8,6 +8,6 @@ def index(request):
     })
 
 def login(request):
-    return render(request, 'login.html', {
+    return render(request, 'app.html', {
         'title': 'Login'
     })
