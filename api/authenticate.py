@@ -22,7 +22,6 @@ class Login(View):
         response = {
             'id': user.id,
             'username': user.username,
-            'firstname': user.first_name,
             'email': user.email
         }
         
