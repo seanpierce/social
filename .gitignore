@@ -6,3 +6,4 @@ env.ini
 .DS_Store
 logs/*
 !logs/.keep
+app/node_modules

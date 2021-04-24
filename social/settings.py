@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import os.path
-import configparser
 import datetime
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -158,7 +157,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/assets/'
+STATIC_ROOT = '/static/'
+# the location where the static assets live
+# note: when the app references the public URL, it will point to the assets folder
+# note2: all files under this directory will be pulled into the static folder
+STATICFILES_DIRS = [os.path.join('assets'),]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
