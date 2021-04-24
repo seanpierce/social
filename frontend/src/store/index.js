@@ -4,17 +4,34 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
+// Make Axios play nice with Django CSRF
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
 export default new Vuex.Store({
 
   state: {
-    user: null
+    user: null,
+    isAuthenticated: false,
+    jwt: localStorage.getItem('token')
   },
 
   mutations: {
 
-    SET_USER: (state, user) => {
+    SET_USER: (state, user, isAuthenticated) => {
       state.user = user
+      state.isAuthenticated = isAuthenticated
     },
+
+    SET_TOKEN: (state, token) => {
+      localStorage.setItem('token', token)
+      state.jwt = token
+    },
+
+    REMOVE_TOKEN: (state) => {
+      localStorage.removeItem('token')
+      state.jwt = null
+    }
   },
 
   actions: {
