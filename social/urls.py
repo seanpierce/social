@@ -16,12 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include, path, re_path
-from .views import index
+from .views import index, login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-    # url(r'^$', index),
+    path('login/', login),
     path('', index),
     re_path('^.*$', index),
 ]
