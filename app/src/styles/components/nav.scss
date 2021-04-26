@@ -1,0 +1,12 @@
+#nav {
+    padding: 1em;
+    border-bottom: solid 2px $dark;
+
+    a {
+        text-decoration: none;
+    }
+
+    .nav-right {
+        float: right;
+    }
+}

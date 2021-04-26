@@ -1,12 +1,13 @@
 from django.http import HttpResponse, HttpRequest
 from django.views.generic import View
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 from django.contrib.auth import authenticate, login, logout
+from . import CSRFExemptView
 import json
+from repositories.users_repository import UsersRepository
 
-@method_decorator(csrf_exempt, name='dispatch')
-class Login(View):
+
+
+class Login(CSRFExemptView):
     """
     Logs a user in.
     """
@@ -19,21 +20,42 @@ class Login(View):
         if user is None:
             return HttpResponse(False, status=401, content_type='application/json')
 
+        login(request, user)
+
         response = {
             'id': user.id,
             'username': user.username,
             'email': user.email
         }
         
-        login(request, user)
         return HttpResponse(json.dumps(response), content_type='application/json')
 
 
-@method_decorator(csrf_exempt, name='dispatch')
-class Logout(View):
+class Logout(CSRFExemptView):
     """
     Logs a user out.
     """
     def post(self, request, *args, **kwargs):
         logout(request)
         return HttpResponse(True, content_type='application/json')
+
+
+class CheckSession(CSRFExemptView):
+    """
+    Chacks to see if a session is still valid. If so, returns user data.
+    """
+    def post(self, request, *args, **kwargs):
+        session_key = request.session.session_key
+
+        try:
+            user = UsersRepository.get_user_from_session_key(session_key)
+
+            response = {
+                'id': user.id,
+                'username': user.username,
+                'email': user.email
+            }
+            
+            return HttpResponse(json.dumps(response), content_type='application/json')
+        except Exception as e:
+            return HttpResponse(False, status=401, content_type='application/json')

@@ -7,3 +7,4 @@ env.ini
 logs/*
 !logs/.keep
 app/node_modules
+venv

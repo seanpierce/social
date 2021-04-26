@@ -1,11 +1,43 @@
+#nav {
+  padding: 1em;
+  border-bottom: solid 2px #11151c; }
+  #nav a {
+    text-decoration: none; }
+  #nav .nav-right {
+    float: right; }
+
+#login form {
+  width: 100%;
+  margin: 2em auto; }
+
+#login .input-group {
+  margin-bottom: 1em; }
+  #login .input-group input, #login .input-group button {
+    width: 100%;
+    font-size: 4em;
+    padding: 0.25em;
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: solid 2px #11151c; }
+    #login .input-group input::placeholder, #login .input-group button::placeholder {
+      color: #11151c; }
+  #login .input-group button {
+    border: solid 2px #11151c;
+    box-shadow: 10px 10px 0px #11151c;
+    cursor: pointer; }
+
 * {
   font-size: 16px;
   color: #11151c;
-  font-family: monospace;
+  font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0; }
 
 body {
   background: #fcb07e; }
+
+#content {
+  padding: 1em; }
 
