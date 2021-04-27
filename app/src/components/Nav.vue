@@ -1,9 +1,17 @@
 <template>
     <div id="nav">
-        <routerLink to="/">Plex</routerLink>
+        <a href='' @click.prevent="toggleSideNav()">
+            &#9776; Plex
+        </a>
         <div class="nav-right" v-if="user">
-            <a href='' @click.prevent="logout()">Log out
-            </a>
+            <a href='' @click.prevent="logout()">Log out</a>
+        </div>
+
+        <div id="sidenav" :class="{ 'open' : showSideNav }">
+            <a href='' class="closebtn" @click.prevent="toggleSideNav()">&times;</a>
+            <routerLink to="/">Feed</routerLink>
+            <routerLink to="/profile/">Profile</routerLink>
+            <routerLink to="/friends/">Friends</routerLink>
         </div>
     </div>
 </template>
@@ -12,6 +20,16 @@
 import api from '../api'
 
 export default {
+
+    props: {
+        showSideNav: {
+            type: Boolean,
+            default: false
+        },
+        toggleSideNav: {
+            type: Function
+        }
+    },
     
     computed: {
         user() {

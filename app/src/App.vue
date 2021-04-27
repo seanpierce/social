@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Nav />
-        <div id="content">
+        <Nav v-if="user" :showSideNav="showSideNav" :toggleSideNav="toggleSideNav" />
+        <div id="content" :class="{ 'showSideNav' : showSideNav }">
             <routerView />
         </div>
     </div>
@@ -11,8 +11,27 @@
 import Nav from './components/Nav'
 
 export default {
+
     components: {
         Nav
+    },
+
+    data() {
+        return {
+            showSideNav: false
+        }
+    },
+
+    computed: {
+        user() {
+            return this.$store.state.user
+        }
+    },
+
+    methods: {
+        toggleSideNav() {
+            this.showSideNav = !this.showSideNav
+        }
     }
 }
 </script>

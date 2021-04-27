@@ -1,6 +1,7 @@
 @import './variables';
 @import './components/nav';
 @import './components/login';
+@import './views/home';
 
 * {
     // set defaults
@@ -18,4 +19,10 @@ body {
 
 #content {
     padding: 1em;
+    transition: all 0.15s;
+
+    &.showSideNav {
+        width: calc(100% - 250px);
+        margin-left: 250px;
+    }
 }
