@@ -1,13 +1,15 @@
 #nav {
-    padding: 1em;
-    border-bottom: solid 2px $dark;
+    // padding: 0.5em;
+    font-size: 2em;
+    margin-bottom: 2em;
 
     a {
         text-decoration: none;
     }
 
-    .nav-right {
-        float: right;
+    .username {
+        font-size: 0.5em;
+        vertical-align: middle;
     }
 
     #sidenav {
@@ -25,18 +27,22 @@
 
         &.open {
             width: 250px;
+
+            @media (max-width: 500px) {
+                width: 100%;
+            }
         }
 
         a {
             padding: 8px 8px 8px 32px;
             text-decoration: none;
-            font-size: 25px;
-            color: #818181;
+            font-size: 1em;
+            color: $muted;
             display: block;
             transition: 0.3s;
 
             &:hover {
-                color: #f1f1f1;
+                color: $light;
             }
         }
           
@@ -46,6 +52,11 @@
             right: 25px;
             font-size: 36px;
             margin-left: 50px;
+        }
+
+        hr {
+            margin: 1em 0;
+            border: solid 1px $muted;
         }
     }  
 }

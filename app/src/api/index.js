@@ -16,8 +16,21 @@ let logout = () => {
     return axios.post('/api/authenticate/logout')
 }
 
+let createPost = (content) => {
+    let payload = {
+        content: content
+    }
+    return axios.post('/api/posts/create', payload)
+}
+
+let getFeed = () => {
+    return axios.get('/api/posts')
+}
+
 export default {
     login,
     checkSession,
-    logout
+    logout,
+    createPost,
+    getFeed
 }

@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Nav v-if="user" :showSideNav="showSideNav" :toggleSideNav="toggleSideNav" />
-        <div id="content" :class="{ 'showSideNav' : showSideNav }">
+        <div id="container" :class="{ 'showSideNav' : showSideNav }">
+            <Nav v-if="user" :showSideNav="showSideNav" :toggleSideNav="toggleSideNav" :class="{ 'showSideNav' : showSideNav }"/>
             <routerView />
         </div>
     </div>

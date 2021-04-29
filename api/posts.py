@@ -1,13 +1,10 @@
-from django.http import HttpResponse
-from django.views.generic import View
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 import json
+from django.http import HttpResponse
+from . import CSRFExemptView
 from repositories.posts import PostsRepository
 
 
-@method_decorator(csrf_exempt, name='dispatch')
-class Create(View):
+class Create(CSRFExemptView):
     """
     Creates a new post for a user.
     """
@@ -17,3 +14,11 @@ class Create(View):
         user = self.request.user
         id = PostsRepository.create_post(content, user.id)
         return HttpResponse(json.dumps(id), content_type='application/json')
+
+
+class GetFeed(CSRFExemptView):
+    """
+    Gets the posts available to view for a user.
+    """
+    def get(self, request, *args, **kwargs):
+        return HttpResponse(json.dumps(PostsRepository.get_posts()), content_type='application/json')

@@ -5,7 +5,7 @@
 
 * {
     // set defaults
-    font-size: 16px;
+    // font-size: 16px;
     color: $dark;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
@@ -14,10 +14,11 @@
 }
 
 body {
-    background: $peach;
+    // background: lighten($color: $mute, $amount: 35);
+    background: $light;
 }
 
-#content {
+#container {
     padding: 1em;
     transition: all 0.15s;
 

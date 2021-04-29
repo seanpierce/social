@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../Views/Home'
-import Hello from '../Views/Hello' 
+import Profile from '../Views/Profile' 
 import Login from '../Views/Login'
 import guards from './guards'
 
@@ -17,9 +17,12 @@ const routes = [
         }
     },
     {
-        path: '/hello',
-        name: 'Hello',
-        component: Hello
+        path: '/profile',
+        name: 'Profile',
+        component: Profile,
+        beforeEnter: (to, from, next) => {
+            guards.checkSession(to, from, next)
+        }
     },
     {
         path: '/login',

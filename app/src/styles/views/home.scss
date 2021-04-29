@@ -3,4 +3,56 @@
     h1 {
         font-size: 4em;
     }
+
+    .tabs {
+        border-bottom: solid 2px $dark;
+        margin: 1em 0;
+
+        .tab {
+            border: solid 2px $dark;
+            display: inline-block;
+            padding: 0.5em 1em;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom: none;
+            cursor: pointer;
+
+            &.selected {
+                background: $dark;
+                color: $light;
+            }
+        }
+    }
+
+    .content {
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    #post {
+
+        textarea {
+            margin: 1em auto;
+            width: 100%;
+            height: 200px;
+            resize: none;
+            border: solid 2px $dark;
+            background: none;
+            outline: none;
+            padding: 8px;
+            font-size: 2em;
+        }
+
+        button {
+            border: solid 2px $dark;
+            box-shadow: 10px 10px 0px $dark;
+            cursor: pointer;
+            width: 100%;
+            font-size: 2em;
+            padding: 0.25em;
+            outline: none;
+            background: none;
+        }
+    }
 }

@@ -1,17 +1,16 @@
 <template>
     <div id="nav">
         <a href='' @click.prevent="toggleSideNav()">
-            &#9776; Plex
+            :) &#10550; <span class="username">@{{ user.username }}</span>
         </a>
-        <div class="nav-right" v-if="user">
-            <a href='' @click.prevent="logout()">Log out</a>
-        </div>
 
         <div id="sidenav" :class="{ 'open' : showSideNav }">
             <a href='' class="closebtn" @click.prevent="toggleSideNav()">&times;</a>
-            <routerLink to="/">Feed</routerLink>
+            <routerLink to="/">Home</routerLink>
             <routerLink to="/profile/">Profile</routerLink>
             <routerLink to="/friends/">Friends</routerLink>
+            <hr>
+            <a href='' @click.prevent="logout()">Log out</a>            
         </div>
     </div>
 </template>
@@ -45,6 +44,7 @@ export default {
                     console.log('User logged out', response)
                     this.$store.dispatch('setUser', null)
                     this.$router.push('/login/')
+                    this.toggleSideNav()
                 })
                 .catch(error => {
                     console.log(error)

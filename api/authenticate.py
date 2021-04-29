@@ -1,8 +1,7 @@
-from django.http import HttpResponse, HttpRequest
-from django.views.generic import View
-from django.contrib.auth import authenticate, login, logout
-from . import CSRFExemptView
 import json
+from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse
+from . import CSRFExemptView
 from repositories.users_repository import UsersRepository
 
 
