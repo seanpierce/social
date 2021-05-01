@@ -15,11 +15,11 @@
 
             <div>
 
-                <div v-if="showFeed">
+                <div v-show="showFeed">
                     <Feed />
                 </div>
-                <div v-if="showPost">
-                    <Post />
+                <div v-show="showPost">
+                    <CreatePost :setTab="setTab" />
                 </div>
 
             </div>
@@ -30,13 +30,13 @@
 
 <script>
 import Feed from '../components/Feed'
-import Post from '../components/Post'
+import CreatePost from '../components/CreatePost'
 
 export default {
 
     components: {
         Feed,
-        Post
+        CreatePost
     },
 
     data() {

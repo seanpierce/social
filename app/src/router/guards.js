@@ -1,7 +1,7 @@
 import store from '../store'
 import api from '../api'
 
-let checkSession = (to, from , next) => {
+let validateSession = (to, from , next) => {
     if (!store.state.user) {
         api.checkSession()
             .then(response => {
@@ -18,6 +18,6 @@ let checkSession = (to, from , next) => {
     }
 }
 
-export default {
-    checkSession
+export {
+    validateSession 
 }

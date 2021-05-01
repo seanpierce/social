@@ -1,41 +1,44 @@
 <template>
-    <div id="post" class="content">
-
-        <h1>Create Post</h1>
-
-        <div class="input-group">
-            <textarea v-model="content"></textarea>
+    <div class="post">
+        <div class="post_author linkish"
+            @click="goToProfile()">
+            @{{ post.author }}
         </div>
-        <div class="input-group">
-            <button type="submit" @click="createPost()">Submit</button>
+        <div class="post_content">
+            {{ post.content }}
+        </div>
+        <div class="post_details">
+            {{ formatCreatedAt(post.created_at) }}
         </div>
     </div>
 </template>
 
 <script>
-import api from '../api'
+import moment from 'moment'
 
 export default {
     
-    data() {
-        return {
-            content: null
+    props: {
+        post: Object
+    },
+
+    computed: {
+
+        user() {
+            return this.$store.state.user
         }
     },
 
     methods: {
+        formatCreatedAt(input) {
+            return moment(input).format('MM/DD/YYYY h:mma')
+        },
 
-        createPost() {
-            api.createPost(this.content)
-                .then(response => {
-                    console.log(response)
-                    // if success
-                    // add post to store
-                    // show success message
-                })
-                .catch(error => {
-                    console.log(error.response)
-                })
+        goToProfile() {
+            if (this.post.author === this.user.username)
+                return
+
+            this.$router.push(`/profile/${this.post.author}`)
         }
     }
 }

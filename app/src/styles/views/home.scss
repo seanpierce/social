@@ -1,9 +1,5 @@
 #home {
 
-    h1 {
-        font-size: 4em;
-    }
-
     .tabs {
         border-bottom: solid 2px $dark;
         margin: 1em 0;
@@ -22,12 +18,6 @@
                 color: $light;
             }
         }
-    }
-
-    .content {
-        width: 100%;
-        max-width: 500px;
-        margin: auto;
     }
 
     #post {

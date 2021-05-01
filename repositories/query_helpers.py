@@ -53,10 +53,10 @@ class QueryHelpers:
                 cursor.execute(sql, params)
             else:
                 cursor.execute(sql)
+            
+            columns = [col[0] for col in cursor.description]
 
-        columns = [col[0] for col in cursor.description]
-
-        return dict(zip(columns, cursor.fetchone()))
+            return dict(zip(columns, cursor.fetchone()))
 
 
     @staticmethod
@@ -73,5 +73,5 @@ class QueryHelpers:
         """
 
         with connection.cursor() as cursor:
-            cursor.execute(sql, params)
-            return cursor.lastrowid
+            cursor.execute(sql, params)            
+            return cursor.fetchone()[0]

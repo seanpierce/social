@@ -2,7 +2,7 @@ import json
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from . import CSRFExemptView
-from repositories.users_repository import UsersRepository
+from repositories.users import UsersRepository
 
 
 

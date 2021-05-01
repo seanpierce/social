@@ -1,0 +1,22 @@
+.posts {
+    margin: 1em auto;
+
+    .post {
+        margin-bottom: 2em;
+
+        .post_author {
+            display: inline-block;
+            margin-bottom: 0.5em;
+        }
+
+        .post_content {
+            margin-bottom: 0.5em;
+            font-size: 1.5em;
+        }
+
+        .post_details {
+            color: lighten($color: $dark, $amount: 50);
+            font-size: 0.75em;
+        }
+    }
+}

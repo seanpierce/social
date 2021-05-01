@@ -16,7 +16,7 @@ class PostsRepository:
             select 
                 p.id,
                 p.content,
-                strftime(p.created_at) as created_at,
+                cast(p.created_at as varchar),
                 u.username as author
             from posts p
             inner join auth_user u on p.user_id = u.id
@@ -36,6 +36,7 @@ class PostsRepository:
                 (content, user_id)
             values
                 (%s, %s)
+            returning id
         """
 
         return query.insert(sql, [content, user_id])

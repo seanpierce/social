@@ -27,10 +27,15 @@ let getFeed = () => {
     return axios.get('/api/posts')
 }
 
+let getProfile = username => {
+    return axios.get(`/api/profile/${username}`)
+}
+
 export default {
     login,
     checkSession,
     logout,
     createPost,
-    getFeed
+    getFeed,
+    getProfile
 }

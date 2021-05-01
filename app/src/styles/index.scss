@@ -2,10 +2,10 @@
 @import './components/nav';
 @import './components/login';
 @import './views/home';
+@import './views/profile.scss';
+@import './components/posts.scss';
 
 * {
-    // set defaults
-    // font-size: 16px;
     color: $dark;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
@@ -14,7 +14,6 @@
 }
 
 body {
-    // background: lighten($color: $mute, $amount: 35);
     background: $light;
 }
 
@@ -25,5 +24,29 @@ body {
     &.showSideNav {
         width: calc(100% - 250px);
         margin-left: 250px;
+    }
+}
+
+.linkish {
+    color: $blue;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+.content {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+hr {
+    margin: 1em 0;
+    border: solid 1px $muted;
+
+    &.dark {
+        border: solid 1px $dark;
     }
 }

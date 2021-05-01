@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../Views/Home'
 import Profile from '../Views/Profile' 
 import Login from '../Views/Login'
-import guards from './guards'
+import { validateSession } from './guards'
 
 Vue.use(VueRouter)
 
@@ -13,15 +13,15 @@ const routes = [
         name: 'Home',
         component: Home,
         beforeEnter: (to, from, next) => {
-            guards.checkSession(to, from, next)
+            validateSession(to, from, next)
         }
     },
     {
-        path: '/profile',
+        path: '/profile/:username',
         name: 'Profile',
         component: Profile,
         beforeEnter: (to, from, next) => {
-            guards.checkSession(to, from, next)
+            validateSession(to, from, next)
         }
     },
     {

@@ -14,10 +14,15 @@ export default new Vuex.Store({
 
     SET_USER: (state, user) => {
       state.user = user
+      state.feed = []
     },
 
     SET_FEED: (state, posts) => {
       state.feed.push(...posts)
+    },
+
+    INSERT_POST: (state, post) => {
+      state.feed.unshift(post)
     }
   },
 
@@ -29,6 +34,10 @@ export default new Vuex.Store({
 
     setFeed({ commit }, posts) {
       commit('SET_FEED', posts)
+    },
+
+    insertPost({ commit }, post) {
+      commit('INSERT_POST', post)
     }
   },
 

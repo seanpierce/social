@@ -4,28 +4,22 @@
         <h1>Feed</h1>
 
         <div class="posts">
-
-            <div class="post"
-                v-for="post in feed" :key="post.id">
-                <div class="post_author">
-                    @{{ post.author }}
-                </div>
-                <div class="post_content">
-                    {{ post.content }}
-                </div>
-                <div class="post_details">
-                    {{ formatCreatedAt(post.created_at) }}
-                </div>
-            </div>
+            <Post v-for="post in feed" 
+                :key="post.id"
+                :post="post" />
         </div>
     </div>
 </template>
 
 <script>
-import moment from 'moment'
 import api from '../api'
+import Post from './Post'
 
 export default {
+
+    components: {
+        Post
+    },
 
     computed: {
 
@@ -45,16 +39,12 @@ export default {
                 .catch(error => {
                     console.log(error.response)
                 })
-        },
-
-        formatCreatedAt(input) {
-            return moment(input).format('MM/DD/YYYY h:mm a')
         }
     },
 
     created() {
-
-        this.getFeed()
+        if (!this.feed.length)
+            this.getFeed()
     }
     
 }

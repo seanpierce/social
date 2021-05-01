@@ -38,11 +38,7 @@
       position: absolute;
       top: 0;
       right: 25px;
-      font-size: 36px;
-      margin-left: 50px; }
-    #nav #sidenav hr {
-      margin: 1em 0;
-      border: solid 1px #919191; }
+      font-size: 36px; }
 
 #login form {
   width: 100%;
@@ -65,9 +61,6 @@
     box-shadow: 10px 10px 0px #11151c;
     cursor: pointer; }
 
-#home h1 {
-  font-size: 4em; }
-
 #home .tabs {
   border-bottom: solid 2px #11151c;
   margin: 1em 0; }
@@ -82,11 +75,6 @@
     #home .tabs .tab.selected {
       background: #11151c;
       color: #F4F5F6; }
-
-#home .content {
-  width: 100%;
-  max-width: 500px;
-  margin: auto; }
 
 #home #post textarea {
   margin: 1em auto;
@@ -109,6 +97,24 @@
   outline: none;
   background: none; }
 
+#profile .member-details {
+  color: #7c8fb0;
+  font-size: 0.75em; }
+
+.posts {
+  margin: 1em auto; }
+  .posts .post {
+    margin-bottom: 2em; }
+    .posts .post .post_author {
+      display: inline-block;
+      margin-bottom: 0.5em; }
+    .posts .post .post_content {
+      margin-bottom: 0.5em;
+      font-size: 1.5em; }
+    .posts .post .post_details {
+      color: #7c8fb0;
+      font-size: 0.75em; }
+
 * {
   color: #11151c;
   font-family: Arial, Helvetica, sans-serif;
@@ -125,4 +131,22 @@ body {
   #container.showSideNav {
     width: calc(100% - 250px);
     margin-left: 250px; }
+
+.linkish {
+  color: #3581b8;
+  cursor: pointer; }
+
+h1 {
+  font-size: 4em; }
+
+.content {
+  width: 100%;
+  max-width: 500px;
+  margin: auto; }
+
+hr {
+  margin: 1em 0;
+  border: solid 1px #919191; }
+  hr.dark {
+    border: solid 1px #11151c; }
 
