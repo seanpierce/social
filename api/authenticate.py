@@ -41,7 +41,7 @@ class Logout(CSRFExemptView):
 
 class CheckSession(CSRFExemptView):
     """
-    Chacks to see if a session is still valid. If so, returns user data.
+    Checks to see if a session is still valid. If so, returns user data.
     """
     def post(self, request, *args, **kwargs):
         session_key = request.session.session_key
