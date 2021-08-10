@@ -1,19 +1,32 @@
 <template>
     <div id="login">
+        <img class="logo" src="/assets/img/sr-logo.png"/>
+
         <form method="post" @submit.prevent="login()">
 
             <div class="input-group">
-                <input type="text" placeholder="username" v-model="username">
+                <input type="text"
+                    placeholder="username"
+                    v-model="username">
             </div>
 
             <div class="input-group">
-                <input type="password" placeholder="password" v-model="password">
+                <input type="password"
+                    placeholder="password"
+                    v-model="password">
             </div>
 
             <div class="input-group">
                 <button type="submit">Login</button>
             </div>
+
         </form>
+
+        <h1>Welcome to My Spoil Club, a place to be yourself. Sign up to talk about Spoiler Room and related topics ONLY. Any non-Spoiler-Room discource will be removed and you WILL be CANCELLED! Other than that, have fun!</h1>
+
+        <div class="input-group">
+            <router-link to="/sign-up" tag="button">Sign Up</router-link>
+        </div>
     </div>
 </template>
 

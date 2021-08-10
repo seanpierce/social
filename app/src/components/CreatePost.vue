@@ -47,7 +47,7 @@ export default {
                     }
 
                     this.$store.dispatch('insertPost', post)
-                    this.setTab('feed')
+                    this.setTab('club')
                     this.content = null
                 })
                 .catch(error => {

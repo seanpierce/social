@@ -5,8 +5,8 @@
             <div class="tabs">
                 <div 
                     class="tab" 
-                    :class="{ 'selected' : tab == 'feed' }"
-                    @click="setTab('feed')">Feed</div>
+                    :class="{ 'selected' : tab == 'club' }"
+                    @click="setTab('club')">Club</div>
                 <div 
                     class="tab" 
                     :class="{ 'selected' : tab == 'post' }"
@@ -16,7 +16,7 @@
             <div>
 
                 <div v-show="showFeed">
-                    <Feed />
+                    <Club />
                 </div>
                 <div v-show="showPost">
                     <CreatePost :setTab="setTab" />
@@ -29,19 +29,19 @@
 </template>
 
 <script>
-import Feed from '../components/Feed'
+import Club from '../components/Club'
 import CreatePost from '../components/CreatePost'
 
 export default {
 
     components: {
-        Feed,
+        Club,
         CreatePost
     },
 
     data() {
         return {
-            tab: 'feed'
+            tab: 'club'
         }
     },
     
@@ -52,7 +52,7 @@ export default {
         },
 
         showFeed() {
-            return this.tab === 'feed'
+            return this.tab === 'club'
         },
 
         showPost() {

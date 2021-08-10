@@ -11,7 +11,7 @@ let validateSession = (to, from , next) => {
             })
             .catch(error => {
                 // no session or not authenticated
-                next('/login/')
+                next('/login')
             })
     } else {
         next()

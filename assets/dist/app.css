@@ -3,6 +3,8 @@
 #nav {
   font-size: 2em;
   margin-bottom: 2em; }
+  #nav .nav-toggle {
+    font-size: 1.5em; }
   #nav a {
     text-decoration: none; }
   #nav .username {
@@ -40,6 +42,12 @@
       right: 25px;
       font-size: 36px; }
 
+#login img.logo {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: auto; }
+
 #login form {
   width: 100%;
   margin: 2em auto; }
@@ -63,7 +71,8 @@
 
 #home .tabs {
   border-bottom: solid 2px #11151c;
-  margin: 1em 0; }
+  margin: 1em 0;
+  font-size: 1.5em; }
   #home .tabs .tab {
     border: solid 2px #11151c;
     display: inline-block;
@@ -107,13 +116,23 @@
     margin-bottom: 2em; }
     .posts .post .post_author {
       display: inline-block;
+      font-size: 1.5em;
       margin-bottom: 0.5em; }
     .posts .post .post_content {
-      margin-bottom: 0.5em;
-      font-size: 1.5em; }
+      margin-bottom: 0.25em;
+      font-size: 3em; }
     .posts .post .post_details {
       color: #7c8fb0;
-      font-size: 0.75em; }
+      font-size: 1em; }
+
+#clubby {
+  width: 100px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 1em; }
+  #clubby img {
+    width: 100%; }
 
 * {
   color: #11151c;
@@ -141,7 +160,6 @@ h1 {
 
 .content {
   width: 100%;
-  max-width: 500px;
   margin: auto; }
 
 hr {

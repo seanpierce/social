@@ -1,16 +1,16 @@
 <template>
     <div id="nav">
-        <a href='' @click.prevent="toggleSideNav()">
-            :) &#10550; <span class="username">@{{ user.username }}</span>
+        <a href='' @click.prevent="toggleSideNav()" class="nav-toggle">
+            &equiv; &#10550; <span class="username">My Spoil Club</span>
         </a>
 
         <div id="sidenav" :class="{ 'open' : showSideNav }">
             <a href='' class="closebtn" @click.prevent="toggleSideNav()">&times;</a>
-            <routerLink to="/">Home</routerLink>
-            <routerLink to="/profile/">Profile</routerLink>
-            <routerLink to="/friends/">Friends</routerLink>
+            <routerLink to="/">Club</routerLink>
+            <routerLink to="/profile">Profile</routerLink>
+            <routerLink to="/friends">Friends</routerLink>
             <hr>
-            <a href='' @click.prevent="logout()">Log out</a>            
+            <a href='' @click.prevent="logout()">Log out :(</a>            
         </div>
     </div>
 </template>

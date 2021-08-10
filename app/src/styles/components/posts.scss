@@ -6,17 +6,18 @@
 
         .post_author {
             display: inline-block;
+            font-size: 1.5em;
             margin-bottom: 0.5em;
         }
 
         .post_content {
-            margin-bottom: 0.5em;
-            font-size: 1.5em;
+            margin-bottom: 0.25em;
+            font-size: 3em;
         }
 
         .post_details {
             color: lighten($color: $dark, $amount: 50);
-            font-size: 0.75em;
+            font-size: 1em;
         }
     }
 }

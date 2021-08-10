@@ -1,7 +1,9 @@
 <template>
     <div id="feed" class="content">
         
-        <h1>Feed</h1>
+        <h1>
+            Club
+        </h1>
 
         <div class="posts">
             <Post v-for="post in feed" 
@@ -22,6 +24,10 @@ export default {
     },
 
     computed: {
+
+        user() {
+            return this.$store.state.user
+        },
 
         feed() {
             return this.$store.state.feed

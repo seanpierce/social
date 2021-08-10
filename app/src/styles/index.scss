@@ -4,6 +4,7 @@
 @import './views/home';
 @import './views/profile.scss';
 @import './components/posts.scss';
+@import './components/clubby.scss';
 
 * {
     color: $dark;
@@ -38,7 +39,6 @@ h1 {
 
 .content {
     width: 100%;
-    max-width: 500px;
     margin: auto;
 }
 
