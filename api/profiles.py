@@ -1,8 +1,8 @@
-from . import CSRFExemptView
+from . import APIView
 from repositories.users import UsersRepository
 
 
-class GetUserProfile(CSRFExemptView):
+class GetUserProfile(APIView):
     """
     Gets user data and the user's posts to display on their profile pafe.
     """

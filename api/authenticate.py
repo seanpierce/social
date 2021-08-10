@@ -1,23 +1,21 @@
 import json
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
-from . import CSRFExemptView
+from . import APIView
 from repositories.users import UsersRepository
 
 
 
-class Login(CSRFExemptView):
+class Login(APIView):
     """
     Logs a user in.
     """
     def post(self, request, *args, **kwargs):
-        body = json.loads(request.body.decode('utf-8'))
-        username = body['username']
-        password = body['password']
-        user = authenticate(username=username, password=password)
+        payload = self.GetPayload(request, ['username', 'password'])
+        user = authenticate(username=payload['username'], password=payload['password'])
 
         if user is None:
-            return HttpResponse(False, status=401, content_type='application/json')
+            return self.Response(False, 401)
 
         login(request, user)
 
@@ -27,22 +25,23 @@ class Login(CSRFExemptView):
             'email': user.email
         }
         
-        return HttpResponse(json.dumps(response), content_type='application/json')
+        return self.Response(response)
 
 
-class Logout(CSRFExemptView):
+class Logout(APIView):
     """
     Logs a user out.
     """
     def post(self, request, *args, **kwargs):
         logout(request)
-        return HttpResponse(True, content_type='application/json')
+        return self.Response(True)
 
 
-class CheckSession(CSRFExemptView):
+class CheckSession(APIView):
     """
-    Chacks to see if a session is still valid. If so, returns user data.
+    Checks to see if a session is still valid. If so, returns user data.
     """
+    @staticmethod
     def post(self, request, *args, **kwargs):
         session_key = request.session.session_key
 
@@ -55,6 +54,6 @@ class CheckSession(CSRFExemptView):
                 'email': user.email
             }
             
-            return HttpResponse(json.dumps(response), content_type='application/json')
+            return self.Response(response)
         except Exception as e:
-            return HttpResponse(False, status=401, content_type='application/json')
+            return self.Response(False, 401)
