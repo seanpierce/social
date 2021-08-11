@@ -17,7 +17,8 @@ class PostsRepository:
                 p.id,
                 p.content,
                 cast(p.created_at as varchar),
-                u.username as author
+                u.username as author,
+                u.id as author_id
             from posts p
             inner join auth_user u on p.user_id = u.id
             order by created_at desc
@@ -40,3 +41,18 @@ class PostsRepository:
         """
 
         return query.insert(sql, [content, user_id])
+
+
+    @staticmethod
+    def delete_post(post_id, author_id):
+        """
+        Deletes a post record from the database.
+        """
+
+        sql = """
+            delete from posts
+            where id = %s 
+            and user_id = %s
+        """
+
+        return query.delete(sql, [post_id, author_id])

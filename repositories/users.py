@@ -30,7 +30,8 @@ class UsersRepository():
                 p.id,
                 p.content,
                 cast(p.created_at as varchar),
-                u.username as author
+                u.username as author,
+                u.id as author_id
             from posts p
             inner join auth_user u on p.user_id = u.id
             where username = %s

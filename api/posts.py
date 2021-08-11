@@ -21,3 +21,14 @@ class GetFeed(APIView):
     def get(self, request, *args, **kwargs):
         data = PostsRepository.get_posts()
         return self.Response(data)
+
+
+class DeletePost(APIView):
+    """
+    Allows a user to delete one of their own posts.
+    """
+    def post(self, request, *args, **kwargs):
+        payload = self.GetPayload(request, ['post_id'])
+        user = self.request.user
+        success = PostsRepository.delete_post(payload['post_id'], user.id)
+        return self.Response(success, 200 if success is True else 401)

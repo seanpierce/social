@@ -75,3 +75,21 @@ class QueryHelpers:
         with connection.cursor() as cursor:
             cursor.execute(sql, params)            
             return cursor.fetchone()[0]
+
+    
+    @staticmethod
+    def delete(sql, params):
+        """
+        Deletes data from the database.
+
+        Args: 
+            sql (string): A string that represents a sql query.
+            params (list): A list of parameters to serialize into the query.
+
+        Returns:
+            True if successfull, False if not.
+        """
+
+        with connection.cursor() as cursor:
+            cursor.execute(sql, params)
+            return cursor.rowcount is 1
