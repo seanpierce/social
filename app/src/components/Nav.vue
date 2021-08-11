@@ -6,7 +6,7 @@
 
         <div id="sidenav" :class="{ 'open' : showSideNav }">
             <a href='' class="closebtn" @click.prevent="toggleSideNav()">&times;</a>
-            <routerLink to="/">Club</routerLink>
+            <routerLink to="/">Home</routerLink>
             <routerLink to="/profile">Profile</routerLink>
             <routerLink to="/friends">Friends</routerLink>
             <hr>

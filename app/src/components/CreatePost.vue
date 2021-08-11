@@ -43,6 +43,7 @@ export default {
                         id: response.data,
                         content: this.content,
                         author: this.user.username,
+                        author_id: this.user.id,
                         created_at: moment()
                     }
 

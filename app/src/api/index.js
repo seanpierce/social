@@ -31,11 +31,19 @@ let getProfile = username => {
     return axios.get(`/api/profile/${username}`)
 }
 
+let deletePost = post_id => {
+    let payload = {
+        post_id: post_id
+    }
+    return axios.post(`/api/posts/delete`, payload)
+}
+
 export default {
     login,
     checkSession,
     logout,
     createPost,
     getFeed,
-    getProfile
+    getProfile,
+    deletePost
 }

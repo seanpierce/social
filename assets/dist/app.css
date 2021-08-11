@@ -31,7 +31,7 @@
       padding: 8px 8px 8px 32px;
       text-decoration: none;
       font-size: 1em;
-      color: #919191;
+      color: #bcc2c8;
       display: block;
       transition: 0.3s; }
       #nav #sidenav a:hover {
@@ -41,12 +41,6 @@
       top: 0;
       right: 25px;
       font-size: 36px; }
-
-#login img.logo {
-  display: block;
-  width: 100%;
-  max-width: 300px;
-  margin: auto; }
 
 #login form {
   width: 100%;
@@ -106,9 +100,15 @@
   outline: none;
   background: none; }
 
+#profile .profile-image_container {
+  width: 50;
+  height: 50;
+  border-radius: 50%;
+  background: #11151c; }
+
 #profile .member-details {
   color: #7c8fb0;
-  font-size: 0.75em; }
+  font-size: 1em; }
 
 .posts {
   margin: 1em auto; }
@@ -124,6 +124,43 @@
     .posts .post .post_details {
       color: #7c8fb0;
       font-size: 1em; }
+      .posts .post .post_details span.trash {
+        margin-left: 0.5em;
+        cursor: pointer;
+        color: red; }
+    .posts .post .delete-post_modal {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.25); }
+      .posts .post .delete-post_modal .delete-post_modal_content {
+        font-size: 1em;
+        background: #F4F5F6;
+        border: solid 1px #11151c;
+        box-shadow: 10px 10px 0px #11151c;
+        width: 98%;
+        max-width: 500px;
+        padding: 1em;
+        display: block;
+        position: absolute;
+        margin: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+        .posts .post .delete-post_modal .delete-post_modal_content ._post_content {
+          display: block;
+          margin: 0.5em 0;
+          font-size: 1.5em; }
+        .posts .post .delete-post_modal .delete-post_modal_content button {
+          border: solid 1px #11151c;
+          border-radius: 0;
+          padding: 0.25em 0.5em;
+          background: #F4F5F6;
+          box-shadow: 2px 2px 0px #11151c;
+          cursor: pointer; }
 
 #clubby {
   width: 100px;
@@ -132,7 +169,12 @@
   right: 0;
   padding: 1em; }
   #clubby img {
-    width: 100%; }
+    width: 100%;
+    filter: drop-shadow(5px 5px 5px #222);
+    cursor: pointer; }
+
+#sign-up h1 {
+  margin: 1em 0; }
 
 * {
   color: #11151c;
@@ -164,7 +206,13 @@ h1 {
 
 hr {
   margin: 1em 0;
-  border: solid 1px #919191; }
+  border: solid 1px #bcc2c8; }
   hr.dark {
     border: solid 1px #11151c; }
+
+img.logo {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: auto; }
 

@@ -3,6 +3,9 @@
         <div v-if="loading">Fetching profile...</div>
 
         <div v-if="!loading && profile">
+            <div class="profile-image_container">
+
+            </div>
             <h1>{{ profile.username }}</h1>
             <div class="member-details">Member since {{ formatMemberSince(profile.date_joined) }}</div>
         </div>

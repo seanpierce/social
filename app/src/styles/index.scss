@@ -5,6 +5,7 @@
 @import './views/profile.scss';
 @import './components/posts.scss';
 @import './components/clubby.scss';
+@import './components/sign-up.scss';
 
 * {
     color: $dark;
@@ -49,4 +50,11 @@ hr {
     &.dark {
         border: solid 1px $dark;
     }
+}
+
+img.logo {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
 }

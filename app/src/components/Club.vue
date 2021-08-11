@@ -1,10 +1,5 @@
 <template>
     <div id="feed" class="content">
-        
-        <h1>
-            Club
-        </h1>
-
         <div class="posts">
             <Post v-for="post in feed" 
                 :key="post.id"

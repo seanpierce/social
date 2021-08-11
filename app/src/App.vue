@@ -4,7 +4,7 @@
             <Nav v-if="user" :showSideNav="showSideNav" :toggleSideNav="toggleSideNav" :class="{ 'showSideNav' : showSideNav }"/>
             <routerView />
         </div>
-        <Clubby />
+        <Clubby v-if="user" />
     </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
     computed: {
         user() {
             return this.$store.state.user
-        }
+        },
     },
 
     methods: {

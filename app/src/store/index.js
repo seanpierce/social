@@ -23,6 +23,11 @@ export default new Vuex.Store({
 
     INSERT_POST: (state, post) => {
       state.feed.unshift(post)
+    },
+
+    DELETE_POST: (state, post_id) => {
+      let index = state.feed.findIndex(post => post.id === post_id)
+      state.feed.splice(index, 1)
     }
   },
 
@@ -38,6 +43,10 @@ export default new Vuex.Store({
 
     insertPost({ commit }, post) {
       commit('INSERT_POST', post)
+    },
+
+    deletePost({ commit }, post_id) {
+      commit('DELETE_POST', post_id)
     }
   },
 

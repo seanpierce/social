@@ -1,7 +1,14 @@
 #profile {
 
+    .profile-image_container {
+        width: 50;
+        height: 50;
+        border-radius: 50%;
+        background: $dark;
+    }
+
     .member-details {
         color: lighten($color: $dark, $amount: 50);
-        font-size: 0.75em;
+        font-size: 1em;
     }
 }
